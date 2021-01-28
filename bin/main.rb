@@ -1,5 +1,1 @@
-puts '****************'
-puts '|              |'
-puts '| Hello world! |'
-puts '|              |'
-puts '****************'
+p "Hello world"
