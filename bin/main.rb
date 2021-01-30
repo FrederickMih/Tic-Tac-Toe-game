@@ -20,5 +20,21 @@ def user_info
    @player_two = gets.chomp
 end
 
+def instructions
+    puts "<------> WELCOME TO TIC-TAC-TOE GAME <---------->"
+    puts '            How this game works?'
+    puts '      You play by putting a mark from 0~8'
+    puts '               0 | 1 | 2'
+    puts '              --- --- ---'
+    puts '               3 | 4 | 5'
+    puts '              --- --- ---'
+    puts '               6 | 7 | 8'
+    puts 
+  end
+
+def make_first_move
+   puts "Please make your move \n#{@player_one}"
+   @user_one_move = gets.chomp.to_i
+end
 
 end
