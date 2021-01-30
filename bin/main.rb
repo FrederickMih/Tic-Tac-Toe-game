@@ -44,6 +44,7 @@ class TicTacToe
     else
       puts "Incorrect move. Try again!"
     end
+    make_first_move
   end
 
   def make_second_move
@@ -54,7 +55,28 @@ class TicTacToe
     else
       puts "Incorrect move. Try again!"
     end
+    make_second_move
   end
+  def play
+   instructions
+   user_info
+   move = 1
+     while move < 9
+      if move.odd?
+         make_first_move
+         # display_board
+         @played.push(@user_one_move)
+        else
+         # change_player
+         make_second_move
+         # display_board
+         @played.push(user_two_move)
+     end
+     move += 1
+     puts "move is: #{move}"
+  end
+  puts "#{player_one} Won!"
+end
 
 
 
