@@ -45,4 +45,30 @@ class TicTacToe
       puts "Incorrect move. Try again!"
     end
   end
+
+  def make_second_move
+    puts "Please make your move #{@player_two} from 1~8"
+    @user_two_move = gets.chomp.to_i
+    if move_valid?(@user_two_move)
+       puts "#{user_two_move} will be place in position #{user_two_move}."
+    else
+      puts "Incorrect move. Try again!"
+    end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 end
