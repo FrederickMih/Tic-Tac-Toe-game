@@ -1,12 +1,11 @@
 #!/usr/bin/env ruby
 
 class TicTacToe
-  attr_accessor :board, :turn, :player_one, :player_two, :cells
+  attr_accessor :board, :turn, :player_one, :player_two
 
-  def initialize()
-    @cells = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    #  @board = board || %w[] * 9
-    @turn = turn
+  def initialize
+    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    # @turn = turn
     @played = []
   end
 
@@ -26,36 +25,30 @@ class TicTacToe
   # Get users names and assign their symbol
   def user_info
     puts 'Welcome to your favourite game Tic_Tac_Toe'
-    puts "Kindly enter the player's name in the dialogs below please!"
+    puts "Kindly enter the player's name in the dialogs below!"
     puts "Player one's name"
-    @player_one = gets.chomp
+    @player_one = gets.strip
     puts "#{player_one} Please used the symbol [X] to play"
     puts "Player two's name"
-    @player_two = gets.chomp
+    @player_two = gets.strip
     puts "#{player_two} Please used the symbol [O] to play"
   end
   #  Ask players to make moves
 
   def make_first_move
-    puts "Please make your move #{@player_one} from 1~8"
-    @user_one_move = gets.chomp.to_i
-    if move_valid?(@user_one_move)
-      puts "#{user_one_move} will be place in position #{user_one_move}."
-    else
-      puts 'Incorrect move. Try again!'
-    end
-    make_first_move
+    puts "#{@player_one}, make your move from 1~8"
+    @user1_move = gets.chomp.to_i
+    move = 'X'
+    @board[@user1_move] = move
+    display_board
   end
 
   def make_second_move
-    puts "Please make your move #{@player_two} from 1~8"
-    @user_two_move = gets.chomp.to_i
-    if move_valid?(@user_two_move)
-      puts "#{user_two_move} will be place in position #{user_two_move}."
-    else
-      puts 'Incorrect move. Try again!'
-    end
-    make_second_move
+    puts "#{@player_two}, Please make your move from 1~8"
+    @user2_move = gets.chomp.to_i
+    move = 'O'
+    board[@user2_move] = move
+    #  display_board
   end
 
   def play
@@ -65,31 +58,19 @@ class TicTacToe
     while move < 9
       if move.odd?
         make_first_move
-        display_board
-        @played.push(@user_one_move)
+      # display_board
+      # @played.push(@user1_move)
+
       else
         # change_player
         make_second_move
         display_board
-        @played.push(user_two_move)
+        @played.push(@user2_move)
       end
       move += 1
       puts "move is: #{move}"
     end
-    puts "#{player_one} Won!"
-  end
-
-  def move_valid?(move)
-    @cells[move - 1] == move and @played.none?(move)
-  end
-
-  def cells_full?
-    @cells.all? { |cell| cell =~ /[^0-9]/ }
-  end
-
-  def win_or_draw
-    puts 'You have won'
-    puts "it's a Draw"
+    # puts "#{player_one} Won!"
   end
 
   def switch_player
@@ -100,17 +81,12 @@ class TicTacToe
     end
   end
 
-  def check_cells
-    !cells_full? and @played.none?
-  end
-
   def display_board
-    puts
-    0 | 1 | 2
-    --- --- ---
-     3 | 4 | 5
-    --- --- ---
-     6 | 7 | 8
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+    puts '--- --- ---'
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
+    puts '--- --- ---'
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
 end
 game1 = TicTacToe.new
