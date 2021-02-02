@@ -1,5 +1,3 @@
-puts '****************'
-puts '|              |'
-puts '| Hello world! |'
-puts '|              |'
-puts '****************'
+#!/usr/bin/env ruby
+
+p 'Hello world'
