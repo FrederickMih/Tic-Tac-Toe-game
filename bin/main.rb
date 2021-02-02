@@ -4,7 +4,8 @@ class TicTacToe
   attr_accessor :board, :turn, :player_one, :player_two
 
   def initialize
-    @board = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+    @board = %w[] * 9
+    @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     # @turn = turn
     @played = []
   end
@@ -40,7 +41,12 @@ class TicTacToe
     @user1_move = gets.chomp.to_i
     move = 'X'
     @board[@user1_move] = move
-    display_board
+    if move_valid?(@user1_move)
+      return puts "you made your move #{@user1_move}. \n\n X will be place in index #{@user1_move}. "
+    end
+
+    puts display_warning
+    make_first_move
   end
 
   def make_second_move
@@ -48,14 +54,38 @@ class TicTacToe
     @user2_move = gets.chomp.to_i
     move = 'O'
     board[@user2_move] = move
-    #  display_board
+    if move_valid?(@user2_move)
+      return puts "you made your move #{@user2_move}. \n\n O will be place in index
+       #{@user2_move}. "
+    end
+    puts display_warning
+    make_second_move
+  end
+
+  # if if there's no winner, then game draw
+  def draw
+    puts 'game is a draw '
+  end
+
+  def move_valid?(move)
+    @cells[move - 1] == move
+  end
+
+  def display_warning
+    "\e[31mSorry, invalid move! Please, try again. \e[0m"
+  end
+
+  def game_end
+    puts "#{player_one} won!"
   end
 
   def play
     instructions
     user_info
+    # display_board
     move = 1
     while move < 9
+      display_board
       if move.odd?
         make_first_move
       # display_board
@@ -64,9 +94,10 @@ class TicTacToe
       else
         # change_player
         make_second_move
-        display_board
-        @played.push(@user2_move)
+        # display_board
+        # @played.push(@user2_move)
       end
+
       move += 1
       puts "move is: #{move}"
     end
@@ -82,12 +113,20 @@ class TicTacToe
   end
 
   def display_board
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
-    puts '--- --- ---'
-    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
-    puts '--- --- ---'
-    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+    # puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+    # puts '--- --- ---'
+    # puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
+    # puts '--- --- ---'
+    # puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+    puts ' 1 | 2 | 3 '
+    puts '--------- '
+    puts ' 4 | 5 | 6 '
+    puts '--------- '
+    puts ' 7 | 8 | 9 '
   end
 end
 game1 = TicTacToe.new
 game1.play
+game1.display_board
+game1.game_end
+game1.draw
