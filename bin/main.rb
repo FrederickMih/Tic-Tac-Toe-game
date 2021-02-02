@@ -62,13 +62,13 @@ class TicTacToe
     make_second_move
   end
 
-  # if if there's no winner, then game draw
+ 
   def draw
     puts 'game is a draw '
   end
 
   def move_valid?(move)
-    @cells[move - 1] == move
+   
   end
 
   def display_warning
@@ -76,32 +76,7 @@ class TicTacToe
   end
 
   def game_end
-    puts "#{player_one} won!"
-  end
-
-  def play
-    instructions
-    user_info
-    # display_board
-    move = 1
-    while move < 9
-      display_board
-      if move.odd?
-        make_first_move
-      # display_board
-      # @played.push(@user1_move)
-
-      else
-        # change_player
-        make_second_move
-        # display_board
-        # @played.push(@user2_move)
-      end
-
-      move += 1
-      puts "move is: #{move}"
-    end
-    # puts "#{player_one} Won!"
+   
   end
 
   def switch_player
@@ -111,6 +86,7 @@ class TicTacToe
       @player_one
     end
   end
+
   display_board
     puts ' 1 | 2 | 3 '
     puts '--------- '
