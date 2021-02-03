@@ -23,7 +23,15 @@ class Board
 
  def full?
       pos.all?{|indx| indx == "X" || indx == "O"}
-  
+ end
+
+ #  returns the amount of turns base on pos values(counts the cells with an X or O)
+ def turn_amount
+    pos.count{|char| char == "x" || char == "O"}
+ end
+
+ def position_taken?(input)
+   position(input) == "X" || position(input) == "O"
  end
 
 end
