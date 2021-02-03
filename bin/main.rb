@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/play_game.rb'
+require_relative '../lib/board.rb'
+
 class TicTacToe
   attr_accessor :board, :turn, :player_one, :player_two
 
@@ -25,41 +28,68 @@ class TicTacToe
 
   # Get users names and assign their symbol
   def user_info
-    puts 'Welcome to your favourite game Tic_Tac_Toe'
-    puts "Kindly enter the player's name in the dialogs below!"
-    puts "Player one's name"
+    puts '<><><><><>...Welcome to your favourite game Tic_Tac_Toe...<><><><><>'
+    puts "                                                                   "
+    puts "<><><>Kindly enter the player's name in the dialogs below!<><><>"
+    puts "--------------------Player one's name---------------------------"
     @player_one = gets.strip
     puts "#{player_one} Please used the symbol [X] to play"
-    puts "Player two's name"
+    puts "                                                                  "
+    puts "--------------------Player two's name----------------------------"
     @player_two = gets.strip
     puts "#{player_two} Please used the symbol [O] to play"
   end
   #  Ask players to make moves
 
   def make_first_move
-    puts "#{@player_one}, make your move from 1~8"
-    @user1_move = gets.chomp.to_i
-    move = 'X'
-    @board[@user1_move] = move
-    if move_valid?(@user1_move)
-      return puts "you made your move #{@user1_move}. \n\n X will be place in index #{@user1_move}. "
+    puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
+    @user1_index = gets.strip.to_i
+    char_X = 'X'
+    @board[@user1_input] = char_X
+    if valid_move?(@user1_index)
+      return puts "\n Hi, your move is:  #{@user1_index}. \n\n X will be used in the position #{@user1_index}. "
     end
-
+    make_first_input
     puts display_warning
-    make_first_move
+    
   end
 
   def make_second_move
-    puts "#{@player_two}, Please make your move from 1~8"
-    @user2_move = gets.chomp.to_i
-    move = 'O'
-    board[@user2_move] = move
-    if move_valid?(@user2_move)
-      return puts "you made your move #{@user2_move}. \n\n O will be place in index
-       #{@user2_move}. "
+    puts "#{@player_two}, <>------ make your move from 1~9 --------<>"
+    @user2_index = gets.chomp.to_i
+    char_O= 'O'
+    board[@user2_index] = char_O
+    if move_valid?(@user2_index)
+      return puts "\n Hi, your move is:  #{@user2_index}. \n\n O will be used in the position #{@user2_index}. "
     end
-    puts display_warning
     make_second_move
+    puts display_warning
+    
+  end
+
+  def curr_player
+    num_turns = turn_amount
+    if num_turns % 2 == 0
+      player = make_first_move
+    else
+      player = make_second_move
+    end 
+    return player
+  end
+
+  def move(index, curr_player = "X")
+    @pos[index] == curr_player
+    
+  end
+
+  def turn
+     if valid_move?(user1_index)
+      player_token == curr_player
+      move(user1_index, player_token)
+      display_board
+     else
+      turn
+     end 
   end
 
  
@@ -67,9 +97,7 @@ class TicTacToe
     puts 'game is a draw '
   end
 
-  def move_valid?(move)
-   
-  end
+
 
   def display_warning
     "\e[31mSorry, invalid move! Please, try again. \e[0m"
@@ -89,5 +117,7 @@ class TicTacToe
 
 end
 game1 = TicTacToe.new
-game1.play
+game1.instructions
+game1.user_info
+game1.make_second_move
 
