@@ -87,16 +87,7 @@ class TicTacToe
     end
   end
 
-  display_board
-    puts ' 1 | 2 | 3 '
-    puts '--------- '
-    puts ' 4 | 5 | 6 '
-    puts '--------- '
-    puts ' 7 | 8 | 9 '
-  end
 end
 game1 = TicTacToe.new
 game1.play
-game1.display_board
-game1.game_end
-game1.draw
+

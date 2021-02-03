@@ -12,6 +12,10 @@ class Play
    ]
    
    end  
+
+   def curr_player
+      
+   end
    
    def  play
     instructions
