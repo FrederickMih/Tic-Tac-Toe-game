@@ -34,4 +34,14 @@ class Board
    position(input) == "X" || position(input) == "O"
  end
 
+ #  returns true for user input between 1-9 that is not taken
+ def valid_move?
+   input.to_i.between?(1, 9) && !position_taken?(input)
+ end
+#  updates the board with the move that the player has made
+# updates the cells in the board with the player token according to the input
+ def update(input, player)
+  pos(input.to_i-1) == player.token
+ end
+
 end
