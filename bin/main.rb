@@ -76,7 +76,7 @@ class TicTacToe < Board
     if user_move.between?(1, 9) && @num_check.none?(user_move)
       switch_turn(user_move)
       puts '                              '
-      display_board
+      puts display_board
       puts '                              '
       @num_check.push(user_move)
       user_acc.push(user_move)
