@@ -1,21 +1,13 @@
 class Board < Play
-  attr_accessor :pos
-
-  def initialize
-    super
-    reset!
-  end
-
-  def reset!
-    @pos = Array.new(9, '')
-  end
-
   def display_board
-    puts " #{@pos[0]} | #{@pos[1]} | #{@pos[2]} "
-    puts '--- --- ---'
-    puts " #{@pos[3]} | #{@pos[4]} | #{@pos[5]} "
-    puts '--- --- ---'
-    puts " #{@pos[6]} | #{@pos[7]} | #{@pos[8]} "
+   <<~HEREDOC
+    \n
+    \s#{@pos[0]} | #{@pos[1]} | #{@pos[2]} 
+     --- --- ---'
+    \s#{@pos[3]} | #{@pos[4]} | #{@pos[5]} 
+     --- --- ---'
+    \s#{@pos[6]} | #{@pos[7]} | #{@pos[8]} 
+  HEREDOC
   end
 
   def switch_turn(user_move)
