@@ -17,7 +17,7 @@ class TicTacToe < Board
     @two_acc = []
     @num_check = []
     @pos = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
-  end 
+  end
 
   # instructions on how to play this game
   def instructions
@@ -53,28 +53,27 @@ class TicTacToe < Board
     one_input = gets.chomp
     @user1_index = one_input.to_i
     if one_input !~ /\D/
-    valid_move(@user1_index, @one_acc)
+      valid_move(@user1_index, @one_acc)
     else
-    make_first_move
+      make_first_move
     end
-   
   end
 
   def make_second_move
     puts "#{@player_two}, <>------ make your move from 1~9 --------<>"
-     two_input = gets.chomp
+    two_input = gets.chomp
     @user2_index = two_input.to_i
     if two_input !~ /\D/
-    valid_move(@user2_index, @two_acc)
+      valid_move(@user2_index, @two_acc)
     else
-    make_second_move
+      make_second_move
     end
   end
 
   def valid_move(user_move, user_acc)
     compare = TicTacToe.new
-    
-    if user_move.between?(1, 9) && @num_check.none?(user_move) 
+
+    if user_move.between?(1, 9) && @num_check.none?(user_move)
       switch_turn(user_move)
       puts '                              '
       display_board
