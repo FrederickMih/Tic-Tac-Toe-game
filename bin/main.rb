@@ -1,16 +1,22 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/play_game.rb'
-require_relative '../lib/board.rb'
+require_relative '../lib/play_game'
+require_relative '../lib/board'
 
-class TicTacToe
-  attr_accessor :board, :turn, :player_one, :player_two
+class TicTacToe < Board
+  attr_accessor :player_one, :player_two, :pos
 
   def initialize
-    @board = %w[] * 9
-    @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    # @turn = turn
+    super
+    @move = []
+    @player1_moves = []
+    @player2_moves = []
+    @curr_player = nil
     @played = []
+    @one_acc = []
+    @two_acc = []
+    @num_check = []
+    reset!
   end
 
   # instructions on how to play this game
@@ -29,95 +35,81 @@ class TicTacToe
   # Get users names and assign their symbol
   def user_info
     puts '<><><><><>...Welcome to your favourite game Tic_Tac_Toe...<><><><><>'
-    puts "                                                                   "
+    puts '                                                                   '
     puts "<><><>Kindly enter the player's name in the dialogs below!<><><>"
     puts "--------------------Player one's name---------------------------"
     @player_one = gets.strip
     puts "#{player_one} Please used the symbol [X] to play"
-    puts "                                                                  "
+    puts '                                                                  '
     puts "--------------------Player two's name----------------------------"
     @player_two = gets.strip
     puts "#{player_two} Please used the symbol [O] to play"
   end
+
   #  Ask players to make moves
 
   def make_first_move
     puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
     @user1_index = gets.strip.to_i
-    char_X = 'X'
-    @board[@user1_input] = char_X
-    if valid_move?(@user1_index)
-      return puts "\n Hi, your move is:  #{@user1_index}. \n\n X will be used in the position #{@user1_index}. "
-    end
-    make_first_input
-    puts display_warning
-    
+    valid_move(@user1_index, @one_acc)
   end
 
   def make_second_move
     puts "#{@player_two}, <>------ make your move from 1~9 --------<>"
     @user2_index = gets.chomp.to_i
-    char_O= 'O'
-    board[@user2_index] = char_O
-    if move_valid?(@user2_index)
-      return puts "\n Hi, your move is:  #{@user2_index}. \n\n O will be used in the position #{@user2_index}. "
-    end
-    make_second_move
-    puts display_warning
-    
+    valid_move(@user2_index, @two_acc)
   end
 
-  def curr_player
-    num_turns = turn_amount
-    if num_turns % 2 == 0
-      player = make_first_move
-    else
-      player = make_second_move
-    end 
-    return player
-  end
-
-  def move(index, curr_player = "X")
-    @pos[index] == curr_player
-    
-  end
-
-  def turn
-     if valid_move?(user1_index)
-      player_token == curr_player
-      move(user1_index, player_token)
+  def valid_move(user_move, user_acc)
+    compare = Play.new
+    if user_move.between?(1, 9) && @num_check.none?(user_move)
+      switch_turn(user_move)
+      puts '                              '
       display_board
-     else
-      turn
-     end 
-  end
-
- 
-  def draw
-    puts 'game is a draw '
-  end
-
-
-
-  def display_warning
-    "\e[31mSorry, invalid move! Please, try again. \e[0m"
-  end
-
-  def game_end
-   
-  end
-
-  def switch_player
-    if @curr_player == @player_one
-      @player_two
+      puts '                              '
+      @num_check.push(user_move)
+      user_acc.push(user_move)
+      compare.won?(user_acc)
     else
-      @player_one
+      puts '                              '
+      puts 'Sorry, invalid move! Please, try again.'
+      puts '                              '
+      make_first_move if user_move == @user1_index
+      make_second_move if user_move == @user2_index
     end
   end
 
-end
-game1 = TicTacToe.new
-game1.instructions
-game1.user_info
-game1.make_second_move
+  def over
+    puts 'Do you want to play again?: yes or no'
+    gets.chomp
+  end
 
+  def draw
+    puts "It's a draw!!"
+  end
+end
+
+loop do
+  play = TicTacToe.new
+  win = false
+  moves = 0
+  play.instructions
+  play.user_info
+  loop do
+    if play.make_first_move == true
+      win = true
+      break
+    end
+    moves += 1
+    break if moves == 9
+
+    if play.make_second_move == true
+      win = true
+      break
+    end
+    moves += 1
+    break if moves == 9
+  end
+  play.draw if moves == 9
+  break if play.over == 'no'
+end
