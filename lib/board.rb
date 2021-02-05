@@ -1,13 +1,10 @@
 class Board < Play
   def display_board
-    <<~HEREDOC
-      \n
-      \s#{@pos[0]} | #{@pos[1]} | #{@pos[2]}#{' '}
-       --- --- ---'
-      \s#{@pos[3]} | #{@pos[4]} | #{@pos[5]}#{' '}
-       --- --- ---'
-      \s#{@pos[6]} | #{@pos[7]} | #{@pos[8]}#{' '}
-    HEREDOC
+    p " #{@pos[0]} | #{@pos[1]} | #{@pos[2]} "
+    p '--- --- ---'
+    p " #{@pos[3]} | #{@pos[4]} | #{@pos[5]} "
+    p '--- --- ---'
+    p " #{@pos[6]} | #{@pos[7]} | #{@pos[8]} "
   end
 
   def switch_turn(user_move)
