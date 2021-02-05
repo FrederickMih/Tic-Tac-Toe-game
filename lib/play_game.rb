@@ -1,6 +1,4 @@
 class Play
- 
-
   def initialize
     @winning_combination = [
       [1, 2, 3],
@@ -19,7 +17,7 @@ class Play
       next unless (@winning_combination[i] - arr).empty?
 
       p '<<<<<-->>>> You Won! <<<<<-->>>>'
-      
+
       return true
     end
     false
