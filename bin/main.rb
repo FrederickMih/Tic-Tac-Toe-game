@@ -48,7 +48,6 @@ class TicTacToe < Board
 
   #  Ask players to make moves
 
-
   def make_first_move
     puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
     one_input = gets.chomp
@@ -74,7 +73,7 @@ class TicTacToe < Board
   def won?(arr)
     (0..7).each do |i|
       next unless (@winning_combination[i] - arr).empty?
-    
+
       p '<<<<<-->>>> You Won! <<<<<-->>>>'
 
       return true
@@ -111,7 +110,6 @@ class TicTacToe < Board
     puts "It's a draw!!"
   end
 end
-
 
 loop do
   play = TicTacToe.new
