@@ -11,15 +11,4 @@ class Play
       [3, 5, 7]
     ]
   end
-
-  def won?(arr)
-    (0..7).each do |i|
-      next unless (@winning_combination[i] - arr).empty?
-
-      p '<<<<<-->>>> You Won! <<<<<-->>>>'
-
-      return true
-    end
-    false
-  end
 end
