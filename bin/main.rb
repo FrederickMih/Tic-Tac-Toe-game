@@ -48,11 +48,12 @@ class TicTacToe < Board
 
   #  Ask players to make moves
 
+
   def make_first_move
     puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
     one_input = gets.chomp
     @user1_index = one_input.to_i
-    if one_input !~ /\D/
+    if one_input !~ /\d\D/
       valid_move(@user1_index, @one_acc)
     else
       make_first_move
@@ -63,7 +64,7 @@ class TicTacToe < Board
     puts "#{@player_two}, <>------ make your move from 1~9 --------<>"
     two_input = gets.chomp
     @user2_index = two_input.to_i
-    if two_input !~ /\D/
+    if two_input !~ /\d\D/
       valid_move(@user2_index, @two_acc)
     else
       make_second_move
@@ -73,7 +74,7 @@ class TicTacToe < Board
   def won?(arr)
     (0..7).each do |i|
       next unless (@winning_combination[i] - arr).empty?
-
+    
       p '<<<<<-->>>> You Won! <<<<<-->>>>'
 
       return true
@@ -110,6 +111,7 @@ class TicTacToe < Board
     puts "It's a draw!!"
   end
 end
+
 
 loop do
   play = TicTacToe.new
