@@ -19,7 +19,6 @@ class TicTacToe < Board
     @pos = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
 
-  # instructions on how to play this game
   def instructions
     puts '<------> WELCOME TO TIC-TAC-TOE GAME <---------->'
     puts '            How this game works?'
@@ -32,7 +31,7 @@ class TicTacToe < Board
     puts
   end
 
-  # Get users names and assign their symbol
+ 
   def user_info
     puts '<><><><><>...Welcome to your favourite game Tic_Tac_Toe...<><><><><>'
     puts '                                                                   '
@@ -46,7 +45,7 @@ class TicTacToe < Board
     puts "#{player_two} Please used the symbol [O] to play"
   end
 
-  #  Ask players to make moves
+  
 
   def make_first_move
     puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
@@ -118,7 +117,13 @@ loop do
   play.instructions
   play.user_info
   loop do
-    if play.make_first_move == true
+    if play.make_first_move == truespecspecspec
+update README
+
+update README
+
+update README
+
       win = true
       break
     end
@@ -133,5 +138,5 @@ loop do
     break if moves == 9
   end
   play.draw if moves == 9
-  break if play.over == 'no'
+  break unless play.over == 'yes'
 end
