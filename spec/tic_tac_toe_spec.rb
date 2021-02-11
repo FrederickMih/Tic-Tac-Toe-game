@@ -41,6 +41,10 @@ describe TicTacToe do
       it "does not display invalid move if the move is between 1-9" do
         expect(tic_tac_toe.valid_move(5, [], 6)).to eql(true)
       end
+
+      it "display invalid move if the move is not between 1-9" do
+        expect(tic_tac_toe.valid_move(17, [], 6)).to_not eql(true)
+      end
    end
 end
 
