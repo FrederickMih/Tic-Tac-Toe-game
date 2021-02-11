@@ -1,8 +1,10 @@
-class Board 
+class Board
   attr_accessor :pos
+
   def initialize
     @pos = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
+
   def display_board
     <<~HEREDOC
       \n
@@ -15,10 +17,11 @@ class Board
   end
 
   def switch_turn(user_move, select)
-    if select == 2
+    case select
+    when 2
       user_symbol = 'X'
       @pos[user_move - 1] = user_symbol
-    elsif select == 3
+    when 3
       user_symbol = 'O'
       @pos[user_move - 1] = user_symbol
     end

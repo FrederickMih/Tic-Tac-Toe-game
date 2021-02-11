@@ -1,5 +1,5 @@
 class TicTacToe < Board
-    attr_accessor :one_acc, :player_two, :pos, :two_acc
+  attr_accessor :one_acc, :player_two, :pos, :two_acc
 
   def initialize
     super
@@ -26,7 +26,6 @@ class TicTacToe < Board
     puts
   end
 
- 
   def user_info
     puts '<><><><><>...Welcome to your favourite game Tic_Tac_Toe...<><><><><>'
     puts '                                                                   '
@@ -39,8 +38,6 @@ class TicTacToe < Board
     @player_two = gets.strip
     puts "#{player_two} Please used the symbol [O] to play"
   end
-
-  
 
   def make_first_move
     puts "#{@player_one}, <>------ make your move from 1~9 --------<>"
@@ -72,7 +69,6 @@ class TicTacToe < Board
     compare.switch_turn(@two_acc)
   end
 
-
   def valid_move(user_move, user_acc, select)
     if user_move.is_a?(Integer) && user_move.between?(1, 9) && @num_check.none?(user_move)
       switch_turn(user_move, select)
@@ -92,8 +88,7 @@ class TicTacToe < Board
 
   def over
     puts 'Do you want to play again?: yes or no'
-    play_gain= gets.chomp
-    play_gain
+    gets.chomp
   end
 
   def draw
