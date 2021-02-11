@@ -24,6 +24,9 @@ describe Board do
       it 'returns the user symbol' do
          expect(board.switch_turn(4, 3)).to eql('O')
       end
+        it 'does not returns the user symbol' do
+         expect(board.switch_turn(4, 3)).not_to eql('X')
+      end
    end
 end
 
