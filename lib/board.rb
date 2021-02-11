@@ -1,4 +1,10 @@
-class Board < Play
+class Board
+  attr_accessor :pos
+
+  def initialize
+    @pos = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  end
+
   def display_board
     <<~HEREDOC
       \n
@@ -10,13 +16,14 @@ class Board < Play
     HEREDOC
   end
 
-  def switch_turn(user_move)
-    if user_move == @user1_index
+  def switch_turn(user_move, select)
+    case select
+    when 2
       user_symbol = 'X'
-      @pos[@user1_index - 1] = user_symbol
-    elsif user_move == @user2_index
+      @pos[user_move - 1] = user_symbol
+    when 3
       user_symbol = 'O'
-      @pos[@user2_index - 1] = user_symbol
+      @pos[user_move - 1] = user_symbol
     end
   end
 end
