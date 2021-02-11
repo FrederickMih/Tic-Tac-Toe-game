@@ -37,6 +37,10 @@ describe TicTacToe do
          tic_tac_toe.valid_move(2, tic_tac_toe.one_acc, 2)
          expect(tic_tac_toe.valid_move(2, [], 2)).to eql(false)
       end
+
+      it "does not display invalid move if the move is between 1-9" do
+        expect(tic_tac_toe.valid_move(5, [], 6)).to eql(true)
+      end
    end
 end
 
