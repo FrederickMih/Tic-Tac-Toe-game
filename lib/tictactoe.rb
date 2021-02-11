@@ -52,7 +52,7 @@ class TicTacToe < Board
       make_first_move
     end
     user_move = @user1_index
-    make_first_move unless valid_move(user_move, @one_acc, 1)
+    make_first_move unless valid_move(user_move, @one_acc, 2)
     compare = TicTacToe.new
     compare.switch_turn(@one_acc)
   end
@@ -67,7 +67,7 @@ class TicTacToe < Board
       make_second_move
     end
     user_move = @user2_index
-    make_second_move unless valid_move(user_move, @two_acc, 2)
+    make_second_move unless valid_move(user_move, @two_acc, 3)
     compare = TicTacToe.new
     compare.switch_turn(@two_acc)
   end

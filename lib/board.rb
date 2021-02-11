@@ -15,10 +15,10 @@ class Board
   end
 
   def switch_turn(user_move, select)
-    if select == 1
+    if select == 2
       user_symbol = 'X'
       @pos[user_move - 1] = user_symbol
-    elsif select == 2
+    elsif select == 3
       user_symbol = 'O'
       @pos[user_move - 1] = user_symbol
     end
