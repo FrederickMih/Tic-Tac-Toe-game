@@ -30,4 +30,15 @@ describe Board do
    end
 end
 
+describe TicTacToe do
+   let(:tic_tac_toe){TicTacToe.new}
+   describe '#valid_move' do
+      it 'display invalid move if the move is not available' do
+         tic_tac_toe.valid_move(2, tic_tac_toe.one_acc, 2)
+         expect(tic_tac_toe.valid_move(2, [], 2)).to eql(false)
+      end
+   end
+end
+
+
 

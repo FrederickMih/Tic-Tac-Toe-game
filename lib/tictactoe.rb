@@ -74,7 +74,7 @@ class TicTacToe < Board
 
 
   def valid_move(user_move, user_acc, select)
-    if user_move.is_a(Integer) && user_move.between?(1, 9) && @num_check.none?(user_move)
+    if user_move.is_a?(Integer) && user_move.between?(1, 9) && @num_check.none?(user_move)
       switch_turn(user_move, select)
       puts '                              '
       puts display_board
