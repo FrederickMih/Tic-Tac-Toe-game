@@ -48,6 +48,12 @@ To get a local copy up and running follow these simple example steps in your ter
 - Twitter: [@MihFrederick](https://twitter.com/MihFrederick)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/fred-mih-495bb31a2/)
 
+👤 **PRABHAKAR PANDEY**
+
+- Github: [@Prabhakarzx](https://github.com/Prabhakarzx)
+- Twitter: [@Prabhakarzx](https://twitter.com/prabhakarzx)
+- Linkedin: [@Prabhakarzx](https://www.linkedin.com/in/prabhakarzx/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
