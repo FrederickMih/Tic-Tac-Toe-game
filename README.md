@@ -20,6 +20,23 @@ Read more about Tic-Tac-Toe game at [Wikipedia](https://en.wikipedia.org/wiki/Ti
 ## Built With
 #### Ruby
 
+## Environment set up requirements
+
+To run this game, you need ruby installed in your environment.
+Run the following command:
+
+```
+$ ruby -v
+```
+
+You should have a result similar to this:
+
+```
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
+```
+
+If you don't get that result, follow this [link](https://www.ruby-lang.org/en/documentation/installation/) and install Ruby in your local environment.
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps in your terminal.
