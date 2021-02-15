@@ -5,7 +5,7 @@ require_relative '../lib/tictactoe'
 describe Play do
   let(:player) { Play.new }
   let(:board) { Play.new }
-  
+
   describe '#won?' do
     it 'Display winning player after comparing' do
       expect(player.won?([2, 3, 8, 5])).to eql(true)

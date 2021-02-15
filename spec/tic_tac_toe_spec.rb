@@ -34,5 +34,4 @@ describe TicTacToe do
       expect(true).to eql(true)
     end
   end
-  
 end
