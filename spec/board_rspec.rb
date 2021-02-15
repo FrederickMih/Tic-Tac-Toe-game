@@ -3,8 +3,8 @@ require_relative '../lib/board'
 describe Board do
     let(:board) { Board.new }
 
-    describe "#display_board" do
-      it "Display the Board" do
+    describe '#display_board' do
+      it 'Display the Board' do
         expect(board).to  eql(board)
       end
     end

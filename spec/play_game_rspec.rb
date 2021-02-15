@@ -6,8 +6,8 @@ describe Play do
   let(:player) { Play.new }
   let(:board) { Play.new }
 
-  describe "#initialize" do
-    it "Initialize the board and check the winnig combilation" do
+  describe '#initialize' do
+    it 'Initialize the board and check the winnig combilation' do
       expect([
         [1, 2, 3],
         [4, 5, 6],
