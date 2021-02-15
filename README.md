@@ -49,12 +49,11 @@ To get a local copy up and running follow these simple example steps in your ter
 
 1. To start the game, type `bin/main.rb`
 2. Enter the player's names
-3. Take a look at the board 
-4. Input the number from 1 to 9 to get the position where you want to take
-5. Taking turns to play the game with step 3 and 4
-6. If either player take 3 grids vertically, horizontally or diagonally first, the player is the winner
-7. If neither player can take 3 grids until the board is filled with players' symbols, the game is a draw
-8. If you want to play again, type `yes`, otherwise, type `no` to quit the game
+3. Input the number from 1 to 9 to get the position where you want to take
+4. Taking turns to play the game with step 3 and 4
+5. If either player take 3 grids vertically, horizontally or diagonally first, the player is the winner
+6. If neither player can take 3 grids until the board is filled with players' symbols, the game is a draw
+7. If you want to play again, type `yes`, otherwise, type `no` to quit the game
 
 
 ## Author
