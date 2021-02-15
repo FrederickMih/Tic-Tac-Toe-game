@@ -27,11 +27,9 @@ describe Play do
         [1, 5, 9],
         [3, 5, 7]
       ])
-    end
-    
+    end 
   end
   
-
   describe '#won?' do
     it 'Display winning player after comparing' do
       expect(player.won?([2, 3, 8, 5])).to eql(true)
