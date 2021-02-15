@@ -55,6 +55,14 @@ To get a local copy up and running follow these simple example steps in your ter
 6. If neither player can take 3 grids until the board is filled with players' symbols, the game is a draw
 7. If you want to play again, type `yes`, otherwise, type `no` to quit the game
 
+## For running the testcase
+
+1. Install ruby gem rspec
+2. Go to terminal and run 'rspec'
+3. If you don't find all the test cases go to spec file by 'cd spec'
+4. Now run rspec <file name>
+5. Find the examples
+6. Tests executed sucessfully
 
 ## Author
 
