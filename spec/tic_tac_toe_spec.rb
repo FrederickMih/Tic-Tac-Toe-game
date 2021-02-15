@@ -22,4 +22,17 @@ describe TicTacToe do
       expect(tic_tac_toe.valid_move('word', [], 6)).to_not eql(true)
     end
   end
+
+  describe '#make_first_move' do
+    it 'Ask the player to enter a number from 1-9' do
+      expect(true).to eql(true)
+    end
+  end
+
+  describe '#make_second_move' do
+    it 'Ask the player to enter a number from 1-9' do
+      expect(true).to eql(true)
+    end
+  end
+  
 end

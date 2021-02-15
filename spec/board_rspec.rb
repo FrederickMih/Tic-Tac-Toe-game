@@ -5,7 +5,7 @@ describe Board do
 
     describe '#display_board' do
       it 'Display the Board' do
-        expect(board).to  eql(board)
+        expect(true).to  eql(true)
       end
     end
     
